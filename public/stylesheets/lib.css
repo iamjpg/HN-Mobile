@@ -1,0 +1,68 @@
+body {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-size: 12px !important;
+	background: #000;
+}
+
+#content {
+	background: #FFF;
+}
+
+#header {
+	background: url('/images/bg_header.gif') repeat-x left bottom;
+	height: 61px;
+	margin-bottom: -12px;
+}
+
+#logo {
+	background: url('/images/ycombinator.png') no-repeat 10px;
+	height: 25px;
+	padding-top: 20px;
+}
+
+#logo div.title {
+	float: left;
+	margin-left: 40px;
+	margin-top: -5px;
+	font-size: 14px;
+	width: 46%;
+}
+
+#logo div.pagetitle {
+	float: right;
+	padding-right: 10px;
+	font-size: 14px;
+	margin-top: -5px;
+}
+
+.newsItem {
+	padding: 10px;
+	border-bottom: 1px dotted #CCC;
+	background: #fefefe url('../images/arrow.png') no-repeat center right;
+	
+}
+
+.postTitle {
+	margin-bottom: 7px;
+}
+
+.meta {
+	
+}
+
+.clear {
+	clear: both;
+}
+
+.info {
+	margin: 5px 0;
+	font-size: 10px;
+	color: #666666;
+}
+
+#footer {
+	color: #FFF;
+	font-size: 10px;
+	margin-left: 20px;
+}

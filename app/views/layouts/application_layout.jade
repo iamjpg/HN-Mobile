@@ -1,0 +1,20 @@
+!!! 5
+html
+	head
+	title= 'Windermere Layer Draw Tool'
+	meta(name="HandheldFriendly", content="True")
+	meta(name="MobileOptimized", content="320")
+	meta(name="viewport", content="width=device-width, initial-scale=1.0")
+	link(rel="shortcut icon",href="/favicon.ico")
+	!= stylesheet_link_tag('normalize','lib')
+	!= javascript_include_tag('http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', 'application', 'jquery.cors', 'jquery.jsonp')
+	!= csrf_meta_tag()
+	body
+		div#content
+			div#header
+				div#logo
+					div.title MobileHN
+					div.pagetitle #{title}
+			!= body
+		div#footer
+			p Created by @iamjpg simply to play with NodeJS

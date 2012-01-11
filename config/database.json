@@ -1,0 +1,17 @@
+{ "development":
+  { "driver":   "mongoose"
+  , "url":      "mongodb://localhost/mobile_hn_dev"
+  }
+, "test":
+  { "driver":   "mongoose"
+  , "url":      "mongodb://localhost/mobile_hn_test"
+  }
+, "staging":
+  { "driver":   "mongoose"
+  , "url":      "mongodb://localhost/mobile_hn_stage"
+  }
+, "production":
+  { "driver":   "mongoose"
+  , "url":      "mongodb://localhost/mobile_hn_prod"
+  }
+}
