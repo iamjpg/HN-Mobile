@@ -1,0 +1,24 @@
+!!! 5
+html
+	head
+	title= title
+	meta(name="HandheldFriendly", content="True")
+	meta(name="MobileOptimized", content="320")
+	meta(name="viewport", content="width=device-width, initial-scale=1.0")
+	link(rel='stylesheet', href='/stylesheets/normalize.css')
+	link(rel='stylesheet', href='/stylesheets/lib.css')
+	script(type="text/javascript", src='http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js')
+	script(type="text/javascript", src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
+	script(type="text/javascript", src="/javascripts/application.js")
+	script(type="text/javascript", src="/javascripts/jquery.cors.js")
+	script(type="text/javascript", src="/javascripts/jquery.jsonp.js")
+	body
+		div#content
+			div#header
+				div#logo
+					div.title MobileHN
+					div.pagetitle #{title}
+			div#contentContainer
+				!= body
+		div#footer
+			p Created by @iamjpg simply to play with NodeJS
