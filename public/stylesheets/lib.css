@@ -36,6 +36,10 @@ body {
 	margin-top: -5px;
 }
 
+#contentContainer {
+	position: relative;
+}
+
 .newsItem {
 	padding: 10px;
 	border-bottom: 1px dotted #CCC;
@@ -61,8 +65,29 @@ body {
 	color: #666666;
 }
 
+#storyContents {
+	padding: 10px;
+}
+
+#storyContents div,#storyContents p {
+	font-size: 14px !important;
+	line-height: 150% !important;
+}
+
+#storyContents img {
+	max-width: 300px !important;
+	height: auto !important;
+}
+
+#readThis {
+	font-size: 12px;
+	background: #dcdcdc;
+	padding: 3px 5px;
+	display: inline-block;
+}
+
 #footer {
 	color: #FFF;
-	font-size: 10px;
+	font-size: 10px !important;
 	margin-left: 20px;
 }

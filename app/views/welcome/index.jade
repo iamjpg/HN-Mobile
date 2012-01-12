@@ -1,5 +1,5 @@
 - data.forEach(function (i,o) {
-	div.newsItem
+	div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}');")
 		div.postTitle
 			strong #{i.title}
 		div.meta
