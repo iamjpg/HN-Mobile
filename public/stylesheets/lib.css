@@ -43,7 +43,7 @@ body {
 .newsItem {
 	padding: 10px;
 	border-bottom: 1px dotted #CCC;
-	background: #fefefe url('../images/arrow.png') no-repeat center right;
+	background: url('../images/arrow.png') no-repeat center right;
 	
 }
 
