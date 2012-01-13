@@ -10,13 +10,12 @@ body {
 }
 
 #header {
-	background: url('/images/bg_header.gif') repeat-x left bottom;
+	background: url('/images/bg_header.png') repeat-x left bottom;
 	height: 61px;
-	margin-bottom: -12px;
 }
 
 #logo {
-	background: url('/images/ycombinator.png') no-repeat 10px;
+	background: url('/images/ycombinator.png') no-repeat 10px 15px;
 	height: 25px;
 	padding-top: 20px;
 }
@@ -24,7 +23,6 @@ body {
 #logo div.title {
 	float: left;
 	margin-left: 40px;
-	margin-top: -5px;
 	font-size: 14px;
 	width: 46%;
 }
@@ -33,7 +31,6 @@ body {
 	float: right;
 	padding-right: 10px;
 	font-size: 14px;
-	margin-top: -5px;
 }
 
 #contentContainer {
