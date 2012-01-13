@@ -24,16 +24,21 @@ exports.index = function(req, res){
 				postedBy : 'Broken',
 				points : 0
 			});
+			
+			res.render('index', { 
+				title: 'Front Page',
+				data: "error"
+			});
 		} else {
 			for (i=0;i<response.body.items.length;i++) {
 				items_array.push(response.body.items[i]);
 			}
+			
+			res.render('index', { 
+				title: 'Front Page',
+				data: items_array
+			});
 		}
-		
-		res.render('index', { 
-			title: 'Front Page',
-			data: items_array
-		});
 	});
 };
 

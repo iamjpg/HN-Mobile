@@ -1,21 +1,27 @@
 div#frontPage
-	- data.forEach(function (i,o) {
-		div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}');")
+	- if (data != "error")
+		- data.forEach(function (i,o) {
+			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}');")
+				div.postTitle
+					strong #{i.title}
+				div.meta
+					div.info 
+						\ #{i.points} Points & #{i.commentCount} Comments
+						br
+						\ Posted #{i.postedAgo} by #{i.postedBy}
+						br
+						\ From
+						span(class="host_#{o}")
+				script
+					var node = "host_#{o}";
+					var url = "#{i.url}";
+					var pathArray = url.split( '/' );
+					var host = pathArray[2];
+					$("." + node).html(host);
+		- });
+	- else
+		div#frontPage.newsItem
 			div.postTitle
-				strong #{i.title}
-			div.meta
-				div.info 
-					\ #{i.points} Points & #{i.commentCount} Comments
-					br
-					\ Posted #{i.postedAgo} by #{i.postedBy}
-					br
-					\ From
-					span(class="host_#{o}")
-			script
-				var node = "host_#{o}";
-				var url = "#{i.url}";
-				var pathArray = url.split( '/' );
-				var host = pathArray[2];
-				$("." + node).html(host);
-	- });
+				strong Sorry, there was an error when trying to fetch data from the HN service.  Please 
+				a(href="javascript: window.location.reload();") refresh the page.
 div#story
