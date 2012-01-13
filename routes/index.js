@@ -16,8 +16,18 @@ exports.index = function(req, res){
 	request(hn_query, function(error, response, body) {
 
 		var items_array = [];
-		for (i=0;i<response.body.items.length;i++) {
-			items_array.push(response.body.items[i]);
+		if (typeof response.body.items === 'undefined') {
+			items_array.push({
+				url : '',
+				title : 'Broken',
+				commentCount : 0,
+				postedBy : 'Broken',
+				points : 0
+			});
+		} else {
+			for (i=0;i<response.body.items.length;i++) {
+				items_array.push(response.body.items[i]);
+			}
 		}
 		
 		res.render('index', { 
@@ -54,4 +64,19 @@ exports.story = function(req, res){
 	});
 	
 	//res.render('index', { title: 'Search' })
+};
+
+exports.gs = function(req, res) {
+	var request = require('request');
+
+	var hn_query = {
+		uri : 'http://viewtext.org/api/text?url=' + req.query.url + '&format=json',
+		json : true,
+		method : 'GET'
+	}
+
+	request(hn_query, function(error, response, body) {
+		res.contentType('json');
+		res.send(response.body);
+	});
 };
