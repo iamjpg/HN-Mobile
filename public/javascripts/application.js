@@ -19,25 +19,23 @@ MHN = {
 				height: $(window).height(),
 				display: "block"
 			});
-			// AJAX!!!! SO WEB 5.7
+			// ajax. web 2.0 is so radical.
 			$.ajax({
 				url: '/gs?url=' + url, // Love a local proxy.
 				success: function(res) {
 					// Hide that loader
 					$("#loader").css("display","none");
-					// We gots to parse out the URL for credit
-					// for the link to the actual article
+					// We gots to parse out the URL to give credit.
 					var url = res.url;
 					var pathArray = url.split( '/' );
 					var thsHost = pathArray[2];
 					// Scroll to the top for the article.
 					$("body").scrollTop(0);
-					//Hide the front page because...
+					// Hide the front page.
 					$("#frontPage").css("display","none");
-					// ... animations are for show. move that sucker back to left: 0
+					// Animations are for show. move that sucker back to left: 0
 					$('#contentContainer').css("left", 0);
-					// Ya ya, I should use a jQuery template...whatever...
-					// ...simple string concat is faster.
+					// For something so simple string concat is > jQuery template.
 					var thsStr = '<div id="storyContents">';
 						thsStr += '<h2>' + res.title + '</h2>';
 						thsStr += '<div id="readThis"><em>Read the original story on <a href="' + res.url + '">' + thsHost + '</a></em></div>';
@@ -56,7 +54,9 @@ MHN = {
 $(document).ready(function() {
 	// If the hash is not blank, get the story.
 	if (window.location.hash != "") {
+		// RegEx to grab the URL query param.
 		var url = location.hash.replace(/^.*\=/, '');
+		// Fire the method.
 		MHN.getStory(url);
 	}
 	// Window Location event listener...so, so handy...

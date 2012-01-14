@@ -42,35 +42,6 @@ exports.index = function(req, res){
 	});
 };
 
-exports.story = function(req, res){
-	
-	var request = require('request');
-	var $ = require('jquery'); 
-	
-	var story_query = {
-		uri : 'http://viewtext.org/api/text?url=' + req.query.url + '&format=json',
-		json : true,
-		method : 'GET'
-	}
-
- 	request(story_query, function(error, response, body) {
-	
-		var url = response.body.url;
-		var pathArray = url.split( '/' );
-		var thsHost = pathArray[2];
-	
-		res.render('story', {
-	        title: "Story",
-			returnedTitle: response.body.title,
-			content: response.body.content,
-			url: response.body.url,
-			host: thsHost
-	    });
-	});
-	
-	//res.render('index', { title: 'Search' })
-};
-
 exports.gs = function(req, res) {
 	var request = require('request');
 
@@ -85,3 +56,9 @@ exports.gs = function(req, res) {
 		res.send(response.body);
 	});
 };
+
+exports.about = function(req, res) {
+	res.render('about', { 
+		title: 'About'
+	});
+}

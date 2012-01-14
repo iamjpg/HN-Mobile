@@ -1,8 +1,13 @@
 body {
 	margin: 0 !important;
 	padding: 0 !important;
-	font-size: 12px !important;
-	background: #000;
+	font-size: 14px !important;
+	background: #f57d00;
+}
+
+a {
+	color: #0084ff;
+	text-decoration: underline;
 }
 
 #content {
@@ -84,9 +89,14 @@ body {
 }
 
 #footer {
-	color: #FFF;
-	font-size: 10px !important;
-	margin-left: 20px;
+	color: #000;
+	font-size: 12px !important;
+	padding: 10px 20px;
+}
+
+#footer a {
+	color: #333;
+	text-decoration: underline;
 }
 
 #loader {
@@ -97,4 +107,8 @@ body {
 	top: 0;
 	left: 0;
 	display: none;
+}
+
+#credit {
+	padding: 10px;
 }
