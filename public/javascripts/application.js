@@ -57,7 +57,7 @@ MHN = {
 		this.lockGetStory = true;
 		
 		// Set the hash
-		window.location.hash = "story?id=" + id;
+		window.location.hash = "comments?id=" + id;
 		// Set users current scroll pos
 		this.currentScroll = $("body").scrollTop();
 		// Animations are fun. Who needs a mobile framework?
@@ -128,10 +128,12 @@ $(document).ready(function() {
 	// If the hash is not blank, get the story.
 	if (window.location.hash != "") {
 		// RegEx to grab the URL query param.
-		var url = location.hash.replace(/^.*\=/, '');
+		var id = location.hash.replace(/^.*\=/, '');
 		// Fire the method.
-		if (!MHN.isNumeric(url)) {
-			MHN.getStory(url);
+		if (window.location.hash.indexOf("story") > -1) {
+			MHN.getStory(id);
+		} else {
+			MHN.getComments(id);
 		}
 	}
 	// Window Location event listener...so, so handy...
@@ -139,6 +141,8 @@ $(document).ready(function() {
 	jQuery(window.location).change(function() {
 		// Is the hash blank? That means someone must have hit the back button.
 		if (window.location.hash === "") {
+			// Hide that loader
+			$("#loader").css("display","none");
 			// Position the content div off the screen.
 			$('#contentContainer').css("left", 0 - $(window).width());
 			// Hide the story div

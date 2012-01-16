@@ -134,7 +134,7 @@ li {
 	margin-left: 40px;
 	border-left: 3px solid #dcdcdc;
 	border-bottom: 1px dotted #dcdcdc;
-	padding-left: 10px;
+	padding: 0 0 10px 10px;
 }
 
 .commentSecondChild {
@@ -143,5 +143,5 @@ li {
 	margin-left: 80px;
 	border-left: 3px solid #dcdcdc;
 	border-bottom: 1px dotted #dcdcdc;
-	padding-left: 10px;
+	padding: 0 0 10px 10px;
 }
