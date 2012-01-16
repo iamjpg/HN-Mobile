@@ -54,7 +54,9 @@ a {
 }
 
 .meta {
-	
+	display: inline-block;
+	position: relative;
+	z-index: 5000;
 }
 
 .clear {
@@ -65,6 +67,7 @@ a {
 	margin: 5px 0;
 	font-size: 10px;
 	color: #666666;
+	display: inline-block;
 }
 
 #storyContents {
@@ -115,4 +118,30 @@ a {
 
 li {
 	margin-bottom: 10px;
+}
+
+#commentContainer {
+	padding: 10px;
+}
+
+.comment {
+	margin: 10px 10px 0 10px;
+}
+
+.commentChild {
+	font-size: 12px;
+	margin: 10px;
+	margin-left: 40px;
+	border-left: 3px solid #dcdcdc;
+	border-bottom: 1px dotted #dcdcdc;
+	padding-left: 10px;
+}
+
+.commentSecondChild {
+	font-size: 12px;
+	margin: 10px;
+	margin-left: 80px;
+	border-left: 3px solid #dcdcdc;
+	border-bottom: 1px dotted #dcdcdc;
+	padding-left: 10px;
 }

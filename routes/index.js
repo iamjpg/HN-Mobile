@@ -57,6 +57,21 @@ exports.gs = function(req, res) {
 	});
 };
 
+exports.gc = function (req, res) {
+	var request = require('request');
+
+	var hn_query = {
+		uri : 'http://api.ihackernews.com/post/' + req.query.id,
+		json : true,
+		method : 'GET'
+	}
+
+	request(hn_query, function(error, response, body) {
+		res.contentType('json');
+		res.send(response.body);
+	});
+}
+
 exports.about = function(req, res) {
 	res.render('about', { 
 		title: 'About'

@@ -4,7 +4,7 @@ div#frontPage
 			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}');")
 				div.postTitle
 					strong #{i.title}
-				div.meta
+				div.meta(onclick="MHN.getComments(#{i.id});")
 					div.info 
 						\ #{i.points} Points & #{i.commentCount} Comments
 						br
@@ -22,6 +22,7 @@ div#frontPage
 	- else
 		div#frontPage.newsItem
 			div.postTitle
-				strong Sorry, there was an error when trying to fetch data from the HN service.  Please 
-				a(href="javascript: window.location.reload();") refresh the page.
+				strong Sorry, there was an error when trying to fetch data from the iHackerNews API.  Please 
+				a(href="javascript: window.location.reload();") refreshing the page
+				\ usually works ;)
 div#story

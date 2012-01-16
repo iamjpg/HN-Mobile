@@ -31,6 +31,7 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/gs', routes.gs);
+app.get('/gc', routes.gc);
 app.get('/about', routes.about);
 
 app.listen(8000);
