@@ -13,6 +13,8 @@ MHN = {
 			$('#contentContainer').animate({
 				left: '-=' + $(window).width()
 			}, 500, function() { // Half a second seems right.
+				// Scroll to the top for the article.
+				$("body").scrollTop(0);
 				// Since we're gonna print the story to the screen, let's show the div.
 				$("#story").css("display","block");
 				// While we wait for data to return, a loader is nice for the user, right?
@@ -32,8 +34,7 @@ MHN = {
 						var url = res.url;
 						var pathArray = url.split( '/' );
 						var thsHost = pathArray[2];
-						// Scroll to the top for the article.
-						$("body").scrollTop(0);
+						
 						// Hide the front page.
 						$("#frontPage").css("display","none");
 						// Animations are for show. move that sucker back to left: 0
