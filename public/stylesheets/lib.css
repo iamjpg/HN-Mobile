@@ -122,6 +122,8 @@ li {
 
 #commentContainer {
 	padding: 10px;
+	background: #f5f5f5;
+	border-top: 3px solid #dcdcdc;
 }
 
 .comment {

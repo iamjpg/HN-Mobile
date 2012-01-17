@@ -1,10 +1,10 @@
 div#frontPage
 	- if (data != "error")
 		- data.forEach(function (i,o) {
-			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}');")
+			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}'); MHN.currentArticleId=#{i.id}")
 				div.postTitle
 					strong #{i.title}
-				div.meta(onclick="MHN.getComments(#{i.id});")
+				div.meta
 					div.info 
 						\ #{i.points} Points & #{i.commentCount} Comments
 						br
@@ -22,7 +22,7 @@ div#frontPage
 	- else
 		div#frontPage.newsItem
 			div.postTitle
-				strong Sorry, there was an error when trying to fetch data from the iHackerNews API.  Please 
-				a(href="javascript: window.location.reload();") refreshing the page
+				strong Sorry, there was an error when trying to fetch data from the iHackerNews API. 
+				a(href="javascript: window.location.reload();") Refreshing the page
 				\ usually works ;)
 div#story
