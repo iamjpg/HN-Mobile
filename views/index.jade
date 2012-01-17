@@ -1,7 +1,7 @@
 div#frontPage
 	- if (data != "error")
 		- data.forEach(function (i,o) {
-			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}'); MHN.currentArticleId=#{i.id}")
+			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}'); MHN.currentArticleId=#{i.id}; _gaq.push(['_trackEvent', 'Stories', 'Read', '#{i.title}']);")
 				div.postTitle
 					strong #{i.title}
 				div.meta
