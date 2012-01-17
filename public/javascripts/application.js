@@ -55,7 +55,6 @@ MHN = {
 	},
 	
 	getComments : function(id) {
-		console.log(typeof id);
 		if (typeof id != 'undefined') {
 			// ajax. web 2.0 is so radical.
 			$.ajax({
@@ -64,19 +63,21 @@ MHN = {
 					var thsStr = '<div id="commentContainer">';
 					thsStr += '<h2>Comments from HackerNews</h2>';
 					thsStr += '<p style="font-style: italic; font-weight: bold; background: #FFF">* Note that comments are only 3 levels deep.</p>';
+					thsStr += '<ol>';
 						$.each(res.comments, function(i,o) {
-							thsStr += '<div class="comment">' + o.comment + ' -' + o.postedBy + '</div>';
+							thsStr += '<li class="comment">' + o.comment.replace(/<[^>]+>/ig,"") + ' -' + o.postedBy + '</li>';
 							if (o.children.length > 0) {
 								$.each(o.children, function(i,o) {
-									thsStr += '<div class="commentChild">' + o.comment + ' -' + o.postedBy + '</div>';
+									thsStr += '<li class="commentChild">' + o.comment.replace(/<[^>]+>/ig,"") + ' -' + o.postedBy + '</li>';
 									if (o.children.length > 0) {
 										$.each(o.children, function(i,o) {
-											thsStr += '<div class="commentSecondChild">' + o.comment + ' -' + o.postedBy + '</div>';
+											thsStr += '<li class="commentSecondChild">' + o.comment.replace(/<[^>]+>/ig,"") + ' -' + o.postedBy + '</li>';
 										});
 									}
 								});
 							}
 						});
+					thsStr += '</ol>';
 					thsStr += '</div>';
 					
 					// Show the story.
