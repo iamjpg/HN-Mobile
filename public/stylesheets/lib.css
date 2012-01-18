@@ -173,7 +173,7 @@ li {
 
 #nav li {
 	font-size: 12px;
-	margin: 0 0 0 15px;
+	margin: 0 0 0 10px;
 	float: left;
 }
 
@@ -200,7 +200,7 @@ button.minimal {
   padding: 6px 9px;
   text-align: center;
   text-shadow: 0 1px 0 #fff;
-  width: 100px; }
+  width: 80px; }
   button.minimal:hover {
     background: #d9d9d9;
     -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
