@@ -2,8 +2,6 @@
 MHN = {
 	currentScroll : 0, // Keep track of scrolling, mmmmk?
 	lockGetStory : false,
-	wW : $(window).width(),
-	wH : $(window).height(),
 	getStory: function(url) {
 		
 		if (!this.lockGetStory) {
@@ -13,15 +11,15 @@ MHN = {
 			this.currentScroll = $("body").scrollTop();
 			// Animations are fun. Who needs a mobile framework?
 			$('#contentContainer').animate({
-				left: '-=' + MHN.wW
+				left: '-=' + $(window).width()
 			}, 500, function() { // Half a second seems right.
 				// Since we're gonna print the story to the screen, let's show the div.
 				$("#story").css("display","block");
 				// While we wait for data to return, a loader is nice for the user, right?
 				$("#loader").css({
-					top: MHN.currentScroll,
-					width: MHN.wW,
-					height: MHN.wH,
+					top: $("body").scrollTop(),
+					width: $(window).width(),
+					height: $(window).height(),
 					display: "block"
 				});
 				// ajax. web 2.0 is so radical.
