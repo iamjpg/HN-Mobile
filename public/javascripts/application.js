@@ -102,6 +102,15 @@ MHN = {
 
 // Is the DOM ready yet? Yeeeeesh.
 $(document).ready(function() {
+	// Let's set some bindings, shall we?
+	$("#btnFrontPage").click(function() {
+		window.location = '/';
+	});
+	
+	$("#btnNewStories").click(function() {
+		window.location = '/new';
+	});
+	
 	// If the hash is not blank, get the story.
 	if (window.location.hash != "") {
 		// RegEx to grab the URL query param.

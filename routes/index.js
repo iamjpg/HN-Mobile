@@ -77,3 +77,41 @@ exports.about = function(req, res) {
 		title: 'About'
 	});
 }
+
+exports.new = function (req, res) {
+	var request = require('request');
+	
+	var hn_query = {
+		uri : 'http://api.ihackernews.com/new',
+		json : true,
+		method : 'GET'
+	}
+	
+	request(hn_query, function(error, response, body) {
+
+		var items_array = [];
+		if (typeof response.body.items === 'undefined') {
+			items_array.push({
+				url : '',
+				title : 'Broken',
+				commentCount : 0,
+				postedBy : 'Broken',
+				points : 0
+			});
+			
+			res.render('index', { 
+				title: 'Front Page',
+				data: "error"
+			});
+		} else {
+			for (i=0;i<response.body.items.length;i++) {
+				items_array.push(response.body.items[i]);
+			}
+			
+			res.render('index', { 
+				title: 'Front Page',
+				data: items_array
+			});
+		}
+	});
+}
