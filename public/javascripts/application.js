@@ -111,6 +111,10 @@ $(document).ready(function() {
 		window.location = '/new';
 	});
 	
+	$("#btnAbout").click(function() {
+		window.location = '/about';
+	});
+	
 	// If the hash is not blank, get the story.
 	if (window.location.hash != "") {
 		// RegEx to grab the URL query param.
