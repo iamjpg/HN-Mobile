@@ -18,14 +18,15 @@ html
 					div.title MobileHN
 					div.pagetitle #{title}
 			div#nav
-				ul
-					li
-						button.minimal#btnFrontPage Front
-					li
-						button.minimal#btnNewStories New
-					li
-						button.minimal#btnAbout About
-				div.clear
+				div#navContainer
+					ul
+						li
+							button.minimal#btnFrontPage Front
+						li
+							button.minimal#btnNewStories New
+						li
+							button.minimal#btnAbout About
+					div.clear
 			div#contentContainer
 				!= body
 		div#footer

@@ -2,11 +2,13 @@
 MHN = {
 	currentScroll : 0, // Keep track of scrolling, mmmmk?
 	lockGetStory : false,
-	getStory: function(url) {
+	getStory: function(url,ttl) {
 		
 		if (!this.lockGetStory) {
 			// Set the hash
 			window.location.hash = "story?url=" + url;
+			// Track
+			MHN.trk(ttl);
 			// Set users current scroll pos
 			this.currentScroll = $("body").scrollTop();
 			// Animations are fun. Who needs a mobile framework?
@@ -96,6 +98,10 @@ MHN = {
 	
 	isNumeric : function (n) {
 		return !isNaN(parseFloat(n)) && isFinite(n);
+	},
+	
+	trk : function (title) {
+		 _gaq.push(['_trackEvent', 'Stories', 'Read', '' + title + '']);
 	}
 }
 

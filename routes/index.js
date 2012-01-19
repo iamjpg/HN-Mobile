@@ -109,7 +109,7 @@ exports.new = function (req, res) {
 			}
 			
 			res.render('index', { 
-				title: 'Front Page',
+				title: 'New Items',
 				data: items_array
 			});
 		}
