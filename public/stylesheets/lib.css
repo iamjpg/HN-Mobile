@@ -179,8 +179,12 @@ li {
 
 #navContainer li {
 	font-size: 12px;
-	margin: 0 0 0 10px;
+	margin: 0px;
 	float: left;
+}
+
+#navContainer li.spacer {
+	width: 10px !important;
 }
 
 .clear {
