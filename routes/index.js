@@ -39,6 +39,8 @@ exports.index = function(req, res){
 				data: items_array
 			});
 		}
+		
+		items_array = null;
 	});
 };
 
@@ -55,6 +57,8 @@ exports.gs = function(req, res) {
 		res.contentType('json');
 		res.send(response.body);
 	});
+	
+	hn_query = null;
 };
 
 exports.gc = function (req, res) {
@@ -70,6 +74,8 @@ exports.gc = function (req, res) {
 		res.contentType('json');
 		res.send(response.body);
 	});
+	
+	hn_query = null;
 }
 
 exports.about = function(req, res) {
@@ -113,5 +119,9 @@ exports.new = function (req, res) {
 				data: items_array
 			});
 		}
+		
+		items_array = null;
 	});
+	
+	hn_query = null;
 }
