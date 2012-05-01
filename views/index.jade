@@ -1,23 +1,24 @@
 div#frontPage
 	- if (data != "error")
 		- data.forEach(function (i,o) {
-			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}',\"#{i.title}\"); MHN.currentArticleId=#{i.item_id};")
-				div.postTitle
-					strong #{i.title}
-				div.meta
-					div.info 
-						\ #{i.score} & #{i.comments}
-						br
-						\ Posted #{i.time} by #{i.user}
-						br
-						\ From
-						span(class="host_#{o}")
-				script
-					var node = "host_#{o}";
-					var url = "#{i.url}";
-					var pathArray = url.split( '/' );
-					var host = pathArray[2];
-					$("." + node).html(host);
+			- if (i.title != "NextId")
+				div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}',\"#{i.title}\"); MHN.currentArticleId=#{i.item_id};")
+					div.postTitle
+						strong #{i.title}
+					div.meta
+						div.info 
+							\ #{i.score} & #{i.comments}
+							br
+							\ Posted #{i.time} by #{i.user}
+							br
+							\ From
+							span(class="host_#{o}")
+					script
+						var node = "host_#{o}";
+						var url = "#{i.url}";
+						var pathArray = url.split( '/' );
+						var host = pathArray[2];
+						$("." + node).html(host);
 		- });
 	- else
 		div#frontPage.newsItem
