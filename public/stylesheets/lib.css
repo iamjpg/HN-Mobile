@@ -21,7 +21,8 @@ a {
 }
 
 #logo {
-	background: url('/images/ycombinator.png') no-repeat 10px 15px;
+	background: url('/images/ycombinator@2x.png') no-repeat 10px 15px;
+	background-size: 25px 25px;
 	height: 25px;
 	padding-top: 20px;
 }
@@ -46,7 +47,8 @@ a {
 .newsItem {
 	padding: 10px;
 	border-bottom: 1px dotted #CCC;
-	background: url('../images/arrow.png') no-repeat center right;
+	background: url('../images/arrow@2x.png') no-repeat center right;
+	background-size: 33px 22px;
 	
 }
 
