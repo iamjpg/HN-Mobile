@@ -24,6 +24,24 @@ MHN = {
 					height: $(window).height(),
 					display: "block"
 				});
+				var opts = {
+				  lines: 7, // The number of lines to draw
+				  length: 14, // The length of each line
+				  width: 2, // The line thickness
+				  radius: 21, // The radius of the inner circle
+				  rotate: 0, // The rotation offset
+				  color: '#000', // #rgb or #rrggbb
+				  speed: 0.9, // Rounds per second
+				  trail: 22, // Afterglow percentage
+				  shadow: false, // Whether to render a shadow
+				  hwaccel: false, // Whether to use hardware acceleration
+				  className: 'spinner', // The CSS class to assign to the spinner
+				  zIndex: 2e9, // The z-index (defaults to 2000000000)
+				  top: 'auto', // Top position relative to parent in px
+				  left: 'auto' // Left position relative to parent in px
+				};
+				var target = document.getElementById('loader');
+				var spinner = new Spinner(opts).spin(target);
 				// ajax. web 2.0 is so radical.
 				$.ajax({
 					url: '/gs?url=' + url, // Love a local proxy.
@@ -156,4 +174,8 @@ $(document).ready(function() {
 			});
 		}
 	});
+});
+
+$(document).ready(function() {
+	
 });
