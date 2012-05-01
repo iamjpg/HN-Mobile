@@ -8,7 +8,7 @@ exports.index = function(req, res){
 	var request = require('request');
 	
 	var hn_query = {
-		uri : 'http://api.ihackernews.com/page',
+		uri : 'http://hndroidapi.appspot.com/news',
 		json : true,
 		method : 'GET'
 	}
@@ -65,7 +65,7 @@ exports.gc = function (req, res) {
 	var request = require('request');
 
 	var hn_query = {
-		uri : 'http://api.ihackernews.com/post/' + req.query.id,
+		uri : 'http://hndroidapi.appspot.com/nestedcomments/format/json/id/' + req.query.id,
 		json : true,
 		method : 'GET'
 	}
@@ -88,7 +88,7 @@ exports.new = function (req, res) {
 	var request = require('request');
 	
 	var hn_query = {
-		uri : 'http://api.ihackernews.com/new',
+		uri : 'http://hndroidapi.appspot.com/newest',
 		json : true,
 		method : 'GET'
 	}

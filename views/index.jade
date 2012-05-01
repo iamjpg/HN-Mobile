@@ -1,14 +1,14 @@
 div#frontPage
 	- if (data != "error")
 		- data.forEach(function (i,o) {
-			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}',\"#{i.title}\"); MHN.currentArticleId=#{i.id};")
+			div#frontPage.newsItem(onclick="MHN.getStory('#{i.url}',\"#{i.title}\"); MHN.currentArticleId=#{i.item_id};")
 				div.postTitle
 					strong #{i.title}
 				div.meta
 					div.info 
-						\ #{i.points} Points & #{i.commentCount} Comments
+						\ #{i.score} & #{i.comments}
 						br
-						\ Posted #{i.postedAgo} by #{i.postedBy}
+						\ Posted #{i.time} by #{i.user}
 						br
 						\ From
 						span(class="host_#{o}")
@@ -22,7 +22,7 @@ div#frontPage
 	- else
 		div#frontPage.newsItem
 			div.postTitle
-				strong Sorry, there was an error when trying to fetch data from the iHackerNews API. 
+				strong Sorry, there was an error when trying to fetch data from the hndroidapi API (http://hndroidapi.appspot.com/). 
 				a(href="javascript: window.location.reload();") Refreshing the page
 				\ usually works ;)
 div#story

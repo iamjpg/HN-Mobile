@@ -56,6 +56,8 @@ MHN = {
 		
 	},
 	
+	//
+	// NOTE: I'm not proud of the hard-coded 3 level loop - I'll come back and make it right...someday ;)
 	getComments : function(id) {
 		if (typeof id != 'undefined') {
 			// ajax. web 2.0 is so radical.
@@ -66,14 +68,14 @@ MHN = {
 					thsStr += '<h2>Comments from HackerNews</h2>';
 					thsStr += '<p style="font-style: italic; font-weight: bold; background: #FFF">* Note that comments are only 3 levels deep.</p>';
 					thsStr += '<ol>';
-						$.each(res.comments, function(i,o) {
-							thsStr += '<li class="comment">' + o.comment.replace(/<[^>]+>/ig,"") + ' -' + o.postedBy + '</li>';
-							if (o.children.length > 0) {
+						$.each(res.items, function(i,o) {
+							thsStr += '<li class="comment">' + o.comment.replace(/__BR__/g,"<br /><br />").replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) { return '<a href="'+url+'">'+url+'</a>'; }) + ' -' + o.username + '</li>';
+							if (o.children && !jQuery.isEmptyObject(o.children)) {
 								$.each(o.children, function(i,o) {
-									thsStr += '<li class="commentChild">' + o.comment.replace(/<[^>]+>/ig,"") + ' -' + o.postedBy + '</li>';
-									if (o.children.length > 0) {
+									thsStr += '<li class="commentChild">' + o.comment.replace(/__BR__/g,"<br /><br />").replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) { return '<a href="'+url+'">'+url+'</a>'; }) + ' -' + o.username + '</li>';
+									if (o.children && !jQuery.isEmptyObject(o.children)) {
 										$.each(o.children, function(i,o) {
-											thsStr += '<li class="commentSecondChild">' + o.comment.replace(/<[^>]+>/ig,"") + ' -' + o.postedBy + '</li>';
+											thsStr += '<li class="commentSecondChild">' + o.comment.replace(/__BR__/g,"<br /><br />").replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) { return '<a href="'+url+'">'+url+'</a>'; }) + ' -' + o.username + '</li>';
 										});
 									}
 								});
