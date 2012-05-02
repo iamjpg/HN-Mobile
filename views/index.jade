@@ -19,6 +19,9 @@ div#frontPage
 						var pathArray = url.split( '/' );
 						var host = pathArray[2];
 						$("." + node).html(host);
+			- else
+				div.paginate
+					a(href="/pages/#{i.url}") Next Page &rarr;
 		- });
 	- else
 		div#frontPage.newsItem

@@ -6,16 +6,24 @@
 exports.index = function(req, res){
 	
 	var request = require('request');
+	var items_array = [];
+	
+	var uri = 'http://hndroidapi.appspot.com/news';
+	
+	if (req.params["id"] && req.params["id"] == "news2") {
+		uri = 'http://hndroidapi.appspot.com/news2';
+	} else if (req.params["id"] && req.params["id"] != "news2") {
+		uri = 'http://hndroidapi.appspot.com/news2/format/json/page/' + req.params["id"];
+		
+	}
 	
 	var hn_query = {
-		uri : 'http://hndroidapi.appspot.com/news',
+		uri : uri,
 		json : true,
 		method : 'GET'
 	}
 	
 	request(hn_query, function(error, response, body) {
-
-		var items_array = [];
 		if (typeof response.body.items === 'undefined') {
 			items_array.push({
 				url : '',
@@ -31,8 +39,18 @@ exports.index = function(req, res){
 			});
 		} else {
 			for (i=0;i<response.body.items.length;i++) {
+				if (i == (response.body.items.length - 1)) {
+					var lngth = response.body.items[i].url.split("/");
+					if (lngth.length == 2) {
+						response.body.items[i].url = response.body.items[i].url.replace("/","");
+					} else {
+						response.body.items[i].url = lngth[5];
+					}
+				}
 				items_array.push(response.body.items[i]);
 			}
+			
+			// console.log(items_array);
 			
 			res.render('index', { 
 				title: 'Front Page',
@@ -111,6 +129,14 @@ exports.new = function (req, res) {
 			});
 		} else {
 			for (i=0;i<response.body.items.length;i++) {
+				if (i == (response.body.items.length - 1)) {
+					var lngth = response.body.items[i].url.split("/");
+					if (lngth.length == 2) {
+						response.body.items[i].url = response.body.items[i].url.replace("/","");
+					} else {
+						response.body.items[i].url = lngth[5];
+					}
+				}
 				items_array.push(response.body.items[i]);
 			}
 			

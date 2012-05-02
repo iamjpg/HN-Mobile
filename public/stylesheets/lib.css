@@ -193,6 +193,16 @@ li {
 	clear: both;
 }
 
+.paginate {
+	padding: 20px;
+	font-size: 11px;
+}
+
+.paginate a {
+	color: #009cff;
+	text-decoration: none;
+}
+
 button.minimal {
   background: #e3e3e3;
   border: 1px solid #bbb;
